@@ -1,0 +1,924 @@
+{
+  "description": "ChipLens synthetic data answer key (docs/decisions.md D11). Times in seconds on each file's own time axis (scope t = tau - 2 us, sim t = tau). Cycles are 1-based.",
+  "generator": "python -m synth.generate",
+  "seed": 20261105,
+  "files": {
+    "scope": "synth_scope.csv",
+    "scope_err": "synth_scope_err.csv",
+    "sim": "synth_sim.csv",
+    "dmm": "synth_dmm.xlsx"
+  },
+  "setup": {
+    "channel_map": [
+      {
+        "channel_id": "CH1",
+        "role": "CLK"
+      },
+      {
+        "channel_id": "CH2",
+        "role": "IN"
+      },
+      {
+        "channel_id": "CH3",
+        "role": "OUT"
+      },
+      {
+        "channel_id": "CH4",
+        "role": "IDD"
+      }
+    ],
+    "paths": [
+      {
+        "name": "Buffer",
+        "input_channel": "CH2",
+        "output_channel": "CH3",
+        "polarity": "non_inverting"
+      }
+    ],
+    "sim_mapping": {
+      "v(clk)": "CH1",
+      "v(in)": "CH2",
+      "v(out)": "CH3"
+    },
+    "logic_vdd_v": 1.8,
+    "scope_columns": {
+      "time": "Time(s)",
+      "CH1": "CH1(V)",
+      "CH2": "CH2(V)",
+      "CH3": "CH3(V)",
+      "CH4": "CH4(A)"
+    },
+    "dmm": {
+      "sheet": "DC측정",
+      "x_column": "전압(V)",
+      "y_column": "전류(µA)",
+      "x_scale": 1.0,
+      "y_scale": 1e-06,
+      "sweep_name": "DMM"
+    }
+  },
+  "params": {
+    "n_bits": 40,
+    "prbs": {
+      "polynomial": "x^7+x^6+1",
+      "seed": 127,
+      "lfsr": "newbit = b6 ^ b5; state = ((state << 1) | newbit) & 0x7F; output = newbit"
+    },
+    "clk": {
+      "frequency_hz": 10000000.0,
+      "period_s": 1e-07,
+      "low_v": 0.0,
+      "high_v": 1.8,
+      "rise_10_90_s": 1e-09,
+      "fall_10_90_s": 1e-09,
+      "full_ramp_s": 1.25e-09,
+      "initial": "low",
+      "rise50_tau_s": "25.03 ns + 100k ns (k = 0..39)",
+      "fall50_tau_s": "75.03 ns + 100k ns (k = 0..39)"
+    },
+    "in": {
+      "low_v": 0.0,
+      "high_v": 1.8,
+      "rise_10_90_s": 1e-09,
+      "fall_10_90_s": 1e-09,
+      "full_ramp_s": 1.25e-09,
+      "timing": "bit0 from the start; bit k (k >= 1) 50 % crossing at CLK falling k-1 (tau = 75.03 + 100(k-1) ns)"
+    },
+    "out_scope": {
+      "tplh_s": 6e-09,
+      "tphl_s": 5.5e-09,
+      "rise_10_90_s": 3e-09,
+      "fall_10_90_s": 2.5e-09,
+      "rise_full_ramp_s": 3.75e-09,
+      "fall_full_ramp_s": 3.125e-09,
+      "voh_v": 1.75,
+      "vol_v": 0.05
+    },
+    "out_sim": {
+      "tplh_s": 4.5e-09,
+      "tphl_s": 4.2e-09,
+      "rise_10_90_s": 2e-09,
+      "fall_10_90_s": 1.8e-09,
+      "rise_full_ramp_s": 2.5e-09,
+      "fall_full_ramp_s": 2.25e-09,
+      "voh_v": 1.8,
+      "vol_v": 0.0
+    },
+    "out_rule": "o = IN bits (error file: o[36] inverted = cycle 37); OUT 50 % crossing = CLK falling crossing where o changes + tpLH (0->1) / tpHL (1->0); linear ramp centred on it",
+    "ringing": {
+      "frequency_hz": 250000000.0,
+      "decay_tau_s": 2e-09,
+      "peak_fraction_of_swing": 0.05,
+      "unit_peak": 0.6375248606501067,
+      "amplitude_clk_in_v": 0.1411709653302364,
+      "amplitude_out_v": 0.13332813392300105,
+      "applies_to": [
+        "CH1",
+        "CH2",
+        "CH3"
+      ],
+      "sim": false
+    },
+    "noise": {
+      "voltage_sigma_v": 0.01,
+      "current_sigma_a": 1e-06,
+      "rng": "numpy default_rng(seed); draw order CH1, CH2, CH3, CH4",
+      "sim": false
+    },
+    "idd": {
+      "mean_pre_noise_a": 0.00012,
+      "spike_peak_a": 0.0015,
+      "spike_sigma_s": 5e-10,
+      "spike_at": "every OUT 50 % crossing",
+      "base_current_a": 0.00011248011517610701,
+      "base_current_err_a": 0.00011248011517610698
+    },
+    "scope": {
+      "sample_interval_s": 2e-10,
+      "n_points": 20000,
+      "t0_s": -2e-06,
+      "t_last_s": 1.9998e-06,
+      "columns": [
+        "Time(s)",
+        "CH1(V)",
+        "CH2(V)",
+        "CH3(V)",
+        "CH4(A)"
+      ],
+      "metadata_lines": 4,
+      "header_row": 4,
+      "encoding": "utf-8",
+      "roles": {
+        "CH1": "CLK",
+        "CH2": "IN",
+        "CH3": "OUT",
+        "CH4": "IDD"
+      }
+    },
+    "sim": {
+      "sample_interval_s": 1e-10,
+      "n_points": 40001,
+      "t0_s": 0.0,
+      "t_last_s": 4e-06,
+      "header": [
+        "time",
+        "v(clk)",
+        "time",
+        "v(in)",
+        "time",
+        "v(out)"
+      ],
+      "delimiter": "whitespace",
+      "format": "ngspice wrdata (wr_vecnames on, wr_singlescale off)",
+      "idd": null
+    },
+    "dmm": {
+      "sheet": "DC측정",
+      "title": "멀티미터 DC 측정 — 칩 #1, 25 °C",
+      "title_merge": "A1:C1",
+      "header_row_1based": 3,
+      "data_rows_1based": [
+        4,
+        14
+      ],
+      "header": [
+        "전압(V)",
+        "전류(µA)",
+        "비고"
+      ],
+      "formula": "I_uA = round(1.5 * exp((V - 1.8) / 0.25), 4)",
+      "rows": [
+        {
+          "v": 1.0,
+          "i_ua": 0.0611,
+          "note": null
+        },
+        {
+          "v": 1.1,
+          "i_ua": 0.0912,
+          "note": null
+        },
+        {
+          "v": 1.2,
+          "i_ua": 0.1361,
+          "note": null
+        },
+        {
+          "v": 1.3,
+          "i_ua": 0.203,
+          "note": null
+        },
+        {
+          "v": 1.4,
+          "i_ua": 0.3028,
+          "note": null
+        },
+        {
+          "v": 1.5,
+          "i_ua": 0.4518,
+          "note": null
+        },
+        {
+          "v": 1.6,
+          "i_ua": 0.674,
+          "note": null
+        },
+        {
+          "v": 1.7,
+          "i_ua": 1.0055,
+          "note": null
+        },
+        {
+          "v": 1.8,
+          "i_ua": 1.5,
+          "note": "IDDQ 기준"
+        },
+        {
+          "v": 1.9,
+          "i_ua": 2.2377,
+          "note": null
+        },
+        {
+          "v": 2.0,
+          "i_ua": 3.3383,
+          "note": null
+        }
+      ],
+      "conditions_sheet": "조건"
+    }
+  },
+  "bits": "0000001000001100001010001111001000101100",
+  "bits_err": "0000001000001100001010001111001000100100",
+  "transitions": {
+    "in_rise": 8,
+    "in_fall": 8,
+    "out_rise": 8,
+    "out_fall": 8,
+    "out_err_rise": 8,
+    "out_err_fall": 8,
+    "clk_rise": 40,
+    "clk_fall": 40
+  },
+  "edges": {
+    "scope": {
+      "time_offset_s": -2e-06,
+      "clk_rise_s": [
+        -1.97497e-06,
+        -1.87497e-06,
+        -1.77497e-06,
+        -1.67497e-06,
+        -1.57497e-06,
+        -1.47497e-06,
+        -1.37497e-06,
+        -1.27497e-06,
+        -1.17497e-06,
+        -1.07497e-06,
+        -9.7497e-07,
+        -8.7497e-07,
+        -7.7497e-07,
+        -6.7497e-07,
+        -5.7497e-07,
+        -4.7497e-07,
+        -3.7497e-07,
+        -2.7497e-07,
+        -1.7497e-07,
+        -7.497e-08,
+        2.503e-08,
+        1.2503e-07,
+        2.2503e-07,
+        3.2503e-07,
+        4.2503e-07,
+        5.2503e-07,
+        6.2503e-07,
+        7.2503e-07,
+        8.2503e-07,
+        9.2503e-07,
+        1.02503e-06,
+        1.12503e-06,
+        1.22503e-06,
+        1.32503e-06,
+        1.42503e-06,
+        1.52503e-06,
+        1.62503e-06,
+        1.72503e-06,
+        1.82503e-06,
+        1.92503e-06
+      ],
+      "clk_fall_s": [
+        -1.92497e-06,
+        -1.82497e-06,
+        -1.72497e-06,
+        -1.62497e-06,
+        -1.52497e-06,
+        -1.42497e-06,
+        -1.32497e-06,
+        -1.22497e-06,
+        -1.12497e-06,
+        -1.02497e-06,
+        -9.2497e-07,
+        -8.2497e-07,
+        -7.2497e-07,
+        -6.2497e-07,
+        -5.2497e-07,
+        -4.2497e-07,
+        -3.2497e-07,
+        -2.2497e-07,
+        -1.2497e-07,
+        -2.497e-08,
+        7.503e-08,
+        1.7503e-07,
+        2.7503e-07,
+        3.7503e-07,
+        4.7503e-07,
+        5.7503e-07,
+        6.7503e-07,
+        7.7503e-07,
+        8.7503e-07,
+        9.7503e-07,
+        1.07503e-06,
+        1.17503e-06,
+        1.27503e-06,
+        1.37503e-06,
+        1.47503e-06,
+        1.57503e-06,
+        1.67503e-06,
+        1.77503e-06,
+        1.87503e-06,
+        1.97503e-06
+      ],
+      "in_rise_s": [
+        -1.42497e-06,
+        -8.2497e-07,
+        -2.2497e-07,
+        -2.497e-08,
+        3.7503e-07,
+        9.7503e-07,
+        1.37503e-06,
+        1.57503e-06
+      ],
+      "in_fall_s": [
+        -1.32497e-06,
+        -6.2497e-07,
+        -1.2497e-07,
+        7.503e-08,
+        7.7503e-07,
+        1.07503e-06,
+        1.47503e-06,
+        1.77503e-06
+      ],
+      "out_rise_s": [
+        -1.41897e-06,
+        -8.1897e-07,
+        -2.1897e-07,
+        -1.897e-08,
+        3.8103e-07,
+        9.8103e-07,
+        1.38103e-06,
+        1.58103e-06
+      ],
+      "out_fall_s": [
+        -1.31947e-06,
+        -6.1947e-07,
+        -1.1947e-07,
+        8.053e-08,
+        7.8053e-07,
+        1.08053e-06,
+        1.48053e-06,
+        1.78053e-06
+      ]
+    },
+    "scope_err": {
+      "time_offset_s": -2e-06,
+      "clk_rise_s": [
+        -1.97497e-06,
+        -1.87497e-06,
+        -1.77497e-06,
+        -1.67497e-06,
+        -1.57497e-06,
+        -1.47497e-06,
+        -1.37497e-06,
+        -1.27497e-06,
+        -1.17497e-06,
+        -1.07497e-06,
+        -9.7497e-07,
+        -8.7497e-07,
+        -7.7497e-07,
+        -6.7497e-07,
+        -5.7497e-07,
+        -4.7497e-07,
+        -3.7497e-07,
+        -2.7497e-07,
+        -1.7497e-07,
+        -7.497e-08,
+        2.503e-08,
+        1.2503e-07,
+        2.2503e-07,
+        3.2503e-07,
+        4.2503e-07,
+        5.2503e-07,
+        6.2503e-07,
+        7.2503e-07,
+        8.2503e-07,
+        9.2503e-07,
+        1.02503e-06,
+        1.12503e-06,
+        1.22503e-06,
+        1.32503e-06,
+        1.42503e-06,
+        1.52503e-06,
+        1.62503e-06,
+        1.72503e-06,
+        1.82503e-06,
+        1.92503e-06
+      ],
+      "clk_fall_s": [
+        -1.92497e-06,
+        -1.82497e-06,
+        -1.72497e-06,
+        -1.62497e-06,
+        -1.52497e-06,
+        -1.42497e-06,
+        -1.32497e-06,
+        -1.22497e-06,
+        -1.12497e-06,
+        -1.02497e-06,
+        -9.2497e-07,
+        -8.2497e-07,
+        -7.2497e-07,
+        -6.2497e-07,
+        -5.2497e-07,
+        -4.2497e-07,
+        -3.2497e-07,
+        -2.2497e-07,
+        -1.2497e-07,
+        -2.497e-08,
+        7.503e-08,
+        1.7503e-07,
+        2.7503e-07,
+        3.7503e-07,
+        4.7503e-07,
+        5.7503e-07,
+        6.7503e-07,
+        7.7503e-07,
+        8.7503e-07,
+        9.7503e-07,
+        1.07503e-06,
+        1.17503e-06,
+        1.27503e-06,
+        1.37503e-06,
+        1.47503e-06,
+        1.57503e-06,
+        1.67503e-06,
+        1.77503e-06,
+        1.87503e-06,
+        1.97503e-06
+      ],
+      "in_rise_s": [
+        -1.42497e-06,
+        -8.2497e-07,
+        -2.2497e-07,
+        -2.497e-08,
+        3.7503e-07,
+        9.7503e-07,
+        1.37503e-06,
+        1.57503e-06
+      ],
+      "in_fall_s": [
+        -1.32497e-06,
+        -6.2497e-07,
+        -1.2497e-07,
+        7.503e-08,
+        7.7503e-07,
+        1.07503e-06,
+        1.47503e-06,
+        1.77503e-06
+      ],
+      "out_rise_s": [
+        -1.41897e-06,
+        -8.1897e-07,
+        -2.1897e-07,
+        -1.897e-08,
+        3.8103e-07,
+        9.8103e-07,
+        1.38103e-06,
+        1.68103e-06
+      ],
+      "out_fall_s": [
+        -1.31947e-06,
+        -6.1947e-07,
+        -1.1947e-07,
+        8.053e-08,
+        7.8053e-07,
+        1.08053e-06,
+        1.48053e-06,
+        1.78053e-06
+      ]
+    },
+    "sim": {
+      "time_offset_s": 0.0,
+      "clk_rise_s": [
+        2.503e-08,
+        1.2503e-07,
+        2.2503e-07,
+        3.2503e-07,
+        4.2503e-07,
+        5.2503e-07,
+        6.2503e-07,
+        7.2503e-07,
+        8.2503e-07,
+        9.2503e-07,
+        1.02503e-06,
+        1.12503e-06,
+        1.22503e-06,
+        1.32503e-06,
+        1.42503e-06,
+        1.52503e-06,
+        1.62503e-06,
+        1.72503e-06,
+        1.82503e-06,
+        1.92503e-06,
+        2.02503e-06,
+        2.12503e-06,
+        2.22503e-06,
+        2.32503e-06,
+        2.42503e-06,
+        2.52503e-06,
+        2.62503e-06,
+        2.72503e-06,
+        2.82503e-06,
+        2.92503e-06,
+        3.02503e-06,
+        3.12503e-06,
+        3.22503e-06,
+        3.32503e-06,
+        3.42503e-06,
+        3.52503e-06,
+        3.62503e-06,
+        3.72503e-06,
+        3.82503e-06,
+        3.92503e-06
+      ],
+      "clk_fall_s": [
+        7.503e-08,
+        1.7503e-07,
+        2.7503e-07,
+        3.7503e-07,
+        4.7503e-07,
+        5.7503e-07,
+        6.7503e-07,
+        7.7503e-07,
+        8.7503e-07,
+        9.7503e-07,
+        1.07503e-06,
+        1.17503e-06,
+        1.27503e-06,
+        1.37503e-06,
+        1.47503e-06,
+        1.57503e-06,
+        1.67503e-06,
+        1.77503e-06,
+        1.87503e-06,
+        1.97503e-06,
+        2.07503e-06,
+        2.17503e-06,
+        2.27503e-06,
+        2.37503e-06,
+        2.47503e-06,
+        2.57503e-06,
+        2.67503e-06,
+        2.77503e-06,
+        2.87503e-06,
+        2.97503e-06,
+        3.07503e-06,
+        3.17503e-06,
+        3.27503e-06,
+        3.37503e-06,
+        3.47503e-06,
+        3.57503e-06,
+        3.67503e-06,
+        3.77503e-06,
+        3.87503e-06,
+        3.97503e-06
+      ],
+      "in_rise_s": [
+        5.7503e-07,
+        1.17503e-06,
+        1.77503e-06,
+        1.97503e-06,
+        2.37503e-06,
+        2.97503e-06,
+        3.37503e-06,
+        3.57503e-06
+      ],
+      "in_fall_s": [
+        6.7503e-07,
+        1.37503e-06,
+        1.87503e-06,
+        2.07503e-06,
+        2.77503e-06,
+        3.07503e-06,
+        3.47503e-06,
+        3.77503e-06
+      ],
+      "out_rise_s": [
+        5.7953e-07,
+        1.17953e-06,
+        1.77953e-06,
+        1.97953e-06,
+        2.37953e-06,
+        2.97953e-06,
+        3.37953e-06,
+        3.57953e-06
+      ],
+      "out_fall_s": [
+        6.7923e-07,
+        1.37923e-06,
+        1.87923e-06,
+        2.07923e-06,
+        2.77923e-06,
+        3.07923e-06,
+        3.47923e-06,
+        3.77923e-06
+      ]
+    }
+  },
+  "answers": {
+    "scope": {
+      "tplh": {
+        "value": 6e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ]
+      },
+      "tphl": {
+        "value": 5.5e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ]
+      },
+      "tpd": {
+        "value": 6e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "worst"
+        ]
+      },
+      "rise_time": {
+        "value": 3e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ]
+      },
+      "fall_time": {
+        "value": 2.5e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ]
+      },
+      "voh": {
+        "value": 1.75,
+        "unit": "V",
+        "rel_tol_pct": 1.0
+      },
+      "vol": {
+        "value": 0.05,
+        "unit": "V",
+        "rel_tol_pct": 1.0,
+        "abs_tol": 0.0005
+      },
+      "period": {
+        "value": 1e-07,
+        "unit": "s",
+        "rel_tol_pct": 1.0
+      },
+      "frequency": {
+        "value": 10000000.0,
+        "unit": "Hz",
+        "rel_tol_pct": 1.0
+      },
+      "duty_cycle": {
+        "value": 50.0,
+        "unit": "%",
+        "rel_tol_pct": 1.0
+      },
+      "setup_slack": {
+        "value": 4.4e-08,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "worst"
+        ]
+      },
+      "hold_slack": {
+        "value": 5.55e-08,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "worst"
+        ]
+      },
+      "idd_avg": {
+        "value": 0.00012,
+        "unit": "A",
+        "rel_tol_pct": 1.0
+      },
+      "avg_power": {
+        "value": 0.000216,
+        "unit": "W",
+        "rel_tol_pct": 1.0,
+        "logic_vdd_v": 1.8
+      },
+      "match_rate": {
+        "value": 100.0,
+        "unit": "%",
+        "exact": true,
+        "matched_cycles": 40,
+        "compared_cycles": 40,
+        "mismatch_cycles": [],
+        "first_mismatch": null
+      }
+    },
+    "scope_err": {
+      "match_rate": {
+        "value": 97.5,
+        "unit": "%",
+        "exact": true,
+        "matched_cycles": 39,
+        "compared_cycles": 40,
+        "mismatch_cycles": [
+          37
+        ],
+        "first_mismatch": 37,
+        "expected_bit": "1",
+        "measured_bit": "0"
+      },
+      "tplh": {
+        "value": 6e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ],
+        "note": "same as normal file"
+      },
+      "tphl": {
+        "value": 5.5e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0,
+        "check": [
+          "mean",
+          "worst"
+        ],
+        "note": "same as normal file"
+      }
+    },
+    "sim": {
+      "tplh": {
+        "value": 4.5e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0
+      },
+      "tphl": {
+        "value": 4.2e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0
+      },
+      "rise_time": {
+        "value": 2e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0
+      },
+      "fall_time": {
+        "value": 1.8e-09,
+        "unit": "s",
+        "rel_tol_pct": 3.0
+      },
+      "voh": {
+        "value": 1.8,
+        "unit": "V",
+        "rel_tol_pct": 1.0
+      },
+      "vol": {
+        "value": 0.0,
+        "unit": "V",
+        "abs_tol": 0.0005
+      },
+      "period": {
+        "value": 1e-07,
+        "unit": "s",
+        "rel_tol_pct": 1.0
+      },
+      "duty_cycle": {
+        "value": 50.0,
+        "unit": "%",
+        "rel_tol_pct": 1.0
+      }
+    },
+    "dmm": {
+      "iddq": {
+        "value": 1.5e-06,
+        "unit": "A",
+        "rel_tol_pct": 0.5,
+        "logic_vdd_v": 1.8,
+        "sweep_name": "DMM"
+      }
+    },
+    "sim_deviation_pct": {
+      "tplh": {
+        "value": 33.3333,
+        "d11_rounded": 33.3,
+        "abs_tol_pp": 2.0
+      },
+      "tphl": {
+        "value": 30.9524,
+        "d11_rounded": 31.0,
+        "abs_tol_pp": 2.0
+      },
+      "rise_time": {
+        "value": 50.0,
+        "d11_rounded": 50.0,
+        "abs_tol_pp": 2.0
+      },
+      "fall_time": {
+        "value": 38.8889,
+        "d11_rounded": 38.9,
+        "abs_tol_pp": 2.0
+      },
+      "voh": {
+        "value": -2.7778,
+        "d11_rounded": -2.8,
+        "abs_tol_pp": 2.0
+      }
+    },
+    "demo_judgment": {
+      "settings": {
+        "logic_vdd_v": 1.8,
+        "marginal_threshold_pct": 10.0,
+        "sim_tolerance_pct": 20.0
+      },
+      "specs": [
+        {
+          "metric_id": "tpd",
+          "max": 8e-09,
+          "verdict": "PASS",
+          "margin_pct": 25.0,
+          "abs_tol_pp": 2.0
+        },
+        {
+          "metric_id": "rise_time",
+          "max": 4e-09,
+          "verdict": "PASS",
+          "margin_pct": 25.0,
+          "abs_tol_pp": 2.0
+        },
+        {
+          "metric_id": "voh",
+          "min": 1.6,
+          "verdict": "MARGINAL",
+          "margin_pct": 9.375,
+          "abs_tol_pp": 2.0
+        },
+        {
+          "metric_id": "iddq",
+          "max": 2.5e-06,
+          "verdict": "PASS",
+          "margin_pct": 40.0,
+          "abs_tol_pp": 2.0
+        }
+      ],
+      "card_verdicts": {
+        "pass": 4,
+        "marginal": 1,
+        "fail": 0
+      },
+      "note": "judgment uses the worst value, so tpd/rise margins come out slightly below 25 % (about 24 %) because of the 10 mV noise"
+    },
+    "bandwidth": {
+      "500e6": {
+        "limit_s": 1.4e-09,
+        "warnings": []
+      },
+      "100e6": {
+        "limit_s": 7e-09,
+        "warnings": [
+          "rise_time",
+          "fall_time"
+        ]
+      }
+    }
+  }
+}

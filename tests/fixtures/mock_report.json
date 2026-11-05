@@ -1,0 +1,2921 @@
+{
+  "schema_version": "0.1",
+  "session": {
+    "source": "measured",
+    "chip_id": "칩 #1",
+    "temperature_c": 25.0,
+    "vdd_v": 1.8,
+    "frequency_hz": 10000000.0,
+    "instrument": "ChipLens-SynthScope",
+    "sample_interval_s": 2e-10,
+    "files": [
+      "synth_scope.csv",
+      "synth_dmm.xlsx"
+    ],
+    "notes": {}
+  },
+  "sim_session": {
+    "source": "sim",
+    "chip_id": null,
+    "temperature_c": null,
+    "vdd_v": null,
+    "frequency_hz": null,
+    "instrument": null,
+    "sample_interval_s": 1e-10,
+    "files": [
+      "synth_sim.csv"
+    ],
+    "notes": {}
+  },
+  "settings": {
+    "logic_vdd_v": 1.8,
+    "bandwidth_hz": 500000000.0,
+    "marginal_threshold_pct": 10.0,
+    "sim_tolerance_pct": 20.0,
+    "delay_offset_s": 0.0,
+    "edge_hysteresis_pct": 10.0,
+    "min_pulse_width_s": 0.0,
+    "smoothing_points": 0
+  },
+  "channel_map": {
+    "channels": [
+      {
+        "channel_id": "CH1",
+        "role": "CLK",
+        "label": null
+      },
+      {
+        "channel_id": "CH2",
+        "role": "IN",
+        "label": null
+      },
+      {
+        "channel_id": "CH3",
+        "role": "OUT",
+        "label": null
+      },
+      {
+        "channel_id": "CH4",
+        "role": "IDD",
+        "label": null
+      }
+    ]
+  },
+  "paths": [
+    {
+      "name": "Buffer",
+      "input_channel": "CH2",
+      "output_channel": "CH3",
+      "polarity": "non_inverting"
+    }
+  ],
+  "specs": [
+    {
+      "metric_id": "tpd",
+      "path": null,
+      "channel_id": null,
+      "min": null,
+      "max": 8e-9
+    },
+    {
+      "metric_id": "rise_time",
+      "path": null,
+      "channel_id": null,
+      "min": null,
+      "max": 4e-9
+    },
+    {
+      "metric_id": "voh",
+      "path": null,
+      "channel_id": null,
+      "min": 1.6,
+      "max": null
+    },
+    {
+      "metric_id": "iddq",
+      "path": null,
+      "channel_id": null,
+      "min": null,
+      "max": 2.5e-6
+    }
+  ],
+  "results": [
+    {
+      "metric_id": "rise_time",
+      "label": "상승 시간",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 3.045274e-9,
+      "stats": {
+        "mean": 3e-9,
+        "min": 2.968593e-9,
+        "max": 3.045274e-9,
+        "std": 2.7126e-11,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.419007559e-6,
+            "value": 3.011608e-9,
+            "t_start_s": -1.420513363e-6,
+            "t_end_s": -1.417501755e-6
+          },
+          {
+            "t_s": -8.18933925e-7,
+            "value": 2.973652e-9,
+            "t_start_s": -8.20420751e-7,
+            "t_end_s": -8.17447099e-7
+          },
+          {
+            "t_s": -2.18992105e-7,
+            "value": 3.045274e-9,
+            "t_start_s": -2.20514742e-7,
+            "t_end_s": -2.17469468e-7
+          },
+          {
+            "t_s": -1.8962184e-8,
+            "value": 2.968593e-9,
+            "t_start_s": -2.0446481e-8,
+            "t_end_s": -1.7477887e-8
+          },
+          {
+            "t_s": 3.81017373e-7,
+            "value": 2.980915e-9,
+            "t_start_s": 3.79526915e-7,
+            "t_end_s": 3.8250783e-7
+          },
+          {
+            "t_s": 9.81062013e-7,
+            "value": 3.001232e-9,
+            "t_start_s": 9.79561398e-7,
+            "t_end_s": 9.82562629e-7
+          },
+          {
+            "t_s": 1.381067621e-6,
+            "value": 2.982158e-9,
+            "t_start_s": 1.379576542e-6,
+            "t_end_s": 1.3825587e-6
+          },
+          {
+            "t_s": 1.580988765e-6,
+            "value": 3.036568e-9,
+            "t_start_s": 1.579470481e-6,
+            "t_end_s": 1.582507049e-6
+          }
+        ],
+        "ref_levels_v": {
+          "high": 1.75,
+          "low": 0.05,
+          "v10": 0.22,
+          "v90": 1.58
+        },
+        "worst_time_s": -2.18992105e-7,
+        "params": {}
+      },
+      "spec": {
+        "metric_id": "rise_time",
+        "path": null,
+        "channel_id": null,
+        "min": null,
+        "max": 4e-9
+      },
+      "verdict": "PASS",
+      "margin_pct": 23.86815000000001,
+      "sim_value": 2e-9,
+      "deviation_pct": 49.999999999999986,
+      "warnings": [
+        "SIM_DEVIATION"
+      ]
+    },
+    {
+      "metric_id": "fall_time",
+      "label": "하강 시간",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 2.541605e-9,
+      "stats": {
+        "mean": 2.5e-9,
+        "min": 2.464295e-9,
+        "max": 2.541605e-9,
+        "std": 2.955e-11,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.31948024e-6,
+            "value": 2.541605e-9,
+            "t_start_s": -1.320751042e-6,
+            "t_end_s": -1.318209438e-6
+          },
+          {
+            "t_s": -6.19500259e-7,
+            "value": 2.540205e-9,
+            "t_start_s": -6.20770361e-7,
+            "t_end_s": -6.18230157e-7
+          },
+          {
+            "t_s": -1.19428865e-7,
+            "value": 2.492903e-9,
+            "t_start_s": -1.20675316e-7,
+            "t_end_s": -1.18182414e-7
+          },
+          {
+            "t_s": 8.0494418e-8,
+            "value": 2.522954e-9,
+            "t_start_s": 7.9232941e-8,
+            "t_end_s": 8.1755895e-8
+          },
+          {
+            "t_s": 7.80506069e-7,
+            "value": 2.497234e-9,
+            "t_start_s": 7.79257452e-7,
+            "t_end_s": 7.81754686e-7
+          },
+          {
+            "t_s": 1.080549926e-6,
+            "value": 2.464295e-9,
+            "t_start_s": 1.079317779e-6,
+            "t_end_s": 1.081782074e-6
+          },
+          {
+            "t_s": 1.480529708e-6,
+            "value": 2.474048e-9,
+            "t_start_s": 1.479292684e-6,
+            "t_end_s": 1.481766733e-6
+          },
+          {
+            "t_s": 1.780569243e-6,
+            "value": 2.466757e-9,
+            "t_start_s": 1.779335865e-6,
+            "t_end_s": 1.781802622e-6
+          }
+        ],
+        "ref_levels_v": {
+          "high": 1.75,
+          "low": 0.05,
+          "v10": 0.22,
+          "v90": 1.58
+        },
+        "worst_time_s": -1.31948024e-6,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 1.8e-9,
+      "deviation_pct": 38.88888888888889,
+      "warnings": [
+        "SIM_DEVIATION"
+      ]
+    },
+    {
+      "metric_id": "tplh",
+      "label": "전파 지연 tpLH",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": "Buffer",
+      "channel_id": "CH3",
+      "value": 6.037621e-9,
+      "stats": {
+        "mean": 6e-9,
+        "min": 5.958765e-9,
+        "max": 6.037621e-9,
+        "std": 3.0744e-11,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.419007559e-6,
+            "value": 5.962441e-9,
+            "t_start_s": -1.42497e-6,
+            "t_end_s": -1.419007559e-6
+          },
+          {
+            "t_s": -8.18933925e-7,
+            "value": 6.036075e-9,
+            "t_start_s": -8.2497e-7,
+            "t_end_s": -8.18933925e-7
+          },
+          {
+            "t_s": -2.18992105e-7,
+            "value": 5.977895e-9,
+            "t_start_s": -2.2497e-7,
+            "t_end_s": -2.18992105e-7
+          },
+          {
+            "t_s": -1.8962184e-8,
+            "value": 6.007816e-9,
+            "t_start_s": -2.497e-8,
+            "t_end_s": -1.8962184e-8
+          },
+          {
+            "t_s": 3.81017373e-7,
+            "value": 5.987373e-9,
+            "t_start_s": 3.7503e-7,
+            "t_end_s": 3.81017373e-7
+          },
+          {
+            "t_s": 9.81062013e-7,
+            "value": 6.032013e-9,
+            "t_start_s": 9.7503e-7,
+            "t_end_s": 9.81062013e-7
+          },
+          {
+            "t_s": 1.381067621e-6,
+            "value": 6.037621e-9,
+            "t_start_s": 1.37503e-6,
+            "t_end_s": 1.381067621e-6
+          },
+          {
+            "t_s": 1.580988765e-6,
+            "value": 5.958765e-9,
+            "t_start_s": 1.57503e-6,
+            "t_end_s": 1.580988765e-6
+          }
+        ],
+        "ref_levels_v": {
+          "in_v50": 0.9,
+          "out_v50": 0.9
+        },
+        "worst_time_s": 1.381067621e-6,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 4.5e-9,
+      "deviation_pct": 33.333333333333336,
+      "warnings": [
+        "SIM_DEVIATION"
+      ]
+    },
+    {
+      "metric_id": "tphl",
+      "label": "전파 지연 tpHL",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": "Buffer",
+      "channel_id": "CH3",
+      "value": 5.541135e-9,
+      "stats": {
+        "mean": 5.5e-9,
+        "min": 5.464418e-9,
+        "max": 5.541135e-9,
+        "std": 2.8479e-11,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.31948024e-6,
+            "value": 5.48976e-9,
+            "t_start_s": -1.32497e-6,
+            "t_end_s": -1.31948024e-6
+          },
+          {
+            "t_s": -6.19500259e-7,
+            "value": 5.469741e-9,
+            "t_start_s": -6.2497e-7,
+            "t_end_s": -6.19500259e-7
+          },
+          {
+            "t_s": -1.19428865e-7,
+            "value": 5.541135e-9,
+            "t_start_s": -1.2497e-7,
+            "t_end_s": -1.19428865e-7
+          },
+          {
+            "t_s": 8.0494418e-8,
+            "value": 5.464418e-9,
+            "t_start_s": 7.503e-8,
+            "t_end_s": 8.0494418e-8
+          },
+          {
+            "t_s": 7.80506069e-7,
+            "value": 5.476069e-9,
+            "t_start_s": 7.7503e-7,
+            "t_end_s": 7.80506069e-7
+          },
+          {
+            "t_s": 1.080549926e-6,
+            "value": 5.519926e-9,
+            "t_start_s": 1.07503e-6,
+            "t_end_s": 1.080549926e-6
+          },
+          {
+            "t_s": 1.480529708e-6,
+            "value": 5.499708e-9,
+            "t_start_s": 1.47503e-6,
+            "t_end_s": 1.480529708e-6
+          },
+          {
+            "t_s": 1.780569243e-6,
+            "value": 5.539243e-9,
+            "t_start_s": 1.77503e-6,
+            "t_end_s": 1.780569243e-6
+          }
+        ],
+        "ref_levels_v": {
+          "in_v50": 0.9,
+          "out_v50": 0.9
+        },
+        "worst_time_s": -1.19428865e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 4.2e-9,
+      "deviation_pct": 30.95238095238093,
+      "warnings": [
+        "SIM_DEVIATION"
+      ]
+    },
+    {
+      "metric_id": "tpd",
+      "label": "전파 지연 tpd",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": "Buffer",
+      "channel_id": "CH3",
+      "value": 6.037621e-9,
+      "stats": {
+        "mean": 5.75e-9,
+        "min": 5.464418e-9,
+        "max": 6.037621e-9,
+        "std": 2.5175e-10,
+        "n": 16
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.419007559e-6,
+            "value": 5.962441e-9,
+            "t_start_s": -1.42497e-6,
+            "t_end_s": -1.419007559e-6
+          },
+          {
+            "t_s": -1.31948024e-6,
+            "value": 5.48976e-9,
+            "t_start_s": -1.32497e-6,
+            "t_end_s": -1.31948024e-6
+          },
+          {
+            "t_s": -8.18933925e-7,
+            "value": 6.036075e-9,
+            "t_start_s": -8.2497e-7,
+            "t_end_s": -8.18933925e-7
+          },
+          {
+            "t_s": -6.19500259e-7,
+            "value": 5.469741e-9,
+            "t_start_s": -6.2497e-7,
+            "t_end_s": -6.19500259e-7
+          },
+          {
+            "t_s": -2.18992105e-7,
+            "value": 5.977895e-9,
+            "t_start_s": -2.2497e-7,
+            "t_end_s": -2.18992105e-7
+          },
+          {
+            "t_s": -1.19428865e-7,
+            "value": 5.541135e-9,
+            "t_start_s": -1.2497e-7,
+            "t_end_s": -1.19428865e-7
+          },
+          {
+            "t_s": -1.8962184e-8,
+            "value": 6.007816e-9,
+            "t_start_s": -2.497e-8,
+            "t_end_s": -1.8962184e-8
+          },
+          {
+            "t_s": 8.0494418e-8,
+            "value": 5.464418e-9,
+            "t_start_s": 7.503e-8,
+            "t_end_s": 8.0494418e-8
+          },
+          {
+            "t_s": 3.81017373e-7,
+            "value": 5.987373e-9,
+            "t_start_s": 3.7503e-7,
+            "t_end_s": 3.81017373e-7
+          },
+          {
+            "t_s": 7.80506069e-7,
+            "value": 5.476069e-9,
+            "t_start_s": 7.7503e-7,
+            "t_end_s": 7.80506069e-7
+          },
+          {
+            "t_s": 9.81062013e-7,
+            "value": 6.032013e-9,
+            "t_start_s": 9.7503e-7,
+            "t_end_s": 9.81062013e-7
+          },
+          {
+            "t_s": 1.080549926e-6,
+            "value": 5.519926e-9,
+            "t_start_s": 1.07503e-6,
+            "t_end_s": 1.080549926e-6
+          },
+          {
+            "t_s": 1.381067621e-6,
+            "value": 6.037621e-9,
+            "t_start_s": 1.37503e-6,
+            "t_end_s": 1.381067621e-6
+          },
+          {
+            "t_s": 1.480529708e-6,
+            "value": 5.499708e-9,
+            "t_start_s": 1.47503e-6,
+            "t_end_s": 1.480529708e-6
+          },
+          {
+            "t_s": 1.580988765e-6,
+            "value": 5.958765e-9,
+            "t_start_s": 1.57503e-6,
+            "t_end_s": 1.580988765e-6
+          },
+          {
+            "t_s": 1.780569243e-6,
+            "value": 5.539243e-9,
+            "t_start_s": 1.77503e-6,
+            "t_end_s": 1.780569243e-6
+          }
+        ],
+        "ref_levels_v": {
+          "in_v50": 0.9,
+          "out_v50": 0.9
+        },
+        "worst_time_s": 1.381067621e-6,
+        "params": {}
+      },
+      "spec": {
+        "metric_id": "tpd",
+        "path": null,
+        "channel_id": null,
+        "min": null,
+        "max": 8e-9
+      },
+      "verdict": "PASS",
+      "margin_pct": 24.529737500000003,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "period",
+      "label": "클럭 주기",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH1",
+      "value": 1e-7,
+      "stats": {
+        "mean": 1e-7,
+        "min": 1e-7,
+        "max": 1e-7,
+        "std": 0.0,
+        "n": 39
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.97497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.97497e-6,
+            "t_end_s": -1.87497e-6
+          },
+          {
+            "t_s": -1.87497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.87497e-6,
+            "t_end_s": -1.77497e-6
+          },
+          {
+            "t_s": -1.77497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.77497e-6,
+            "t_end_s": -1.67497e-6
+          },
+          {
+            "t_s": -1.67497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.67497e-6,
+            "t_end_s": -1.57497e-6
+          },
+          {
+            "t_s": -1.57497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.57497e-6,
+            "t_end_s": -1.47497e-6
+          },
+          {
+            "t_s": -1.47497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.47497e-6,
+            "t_end_s": -1.37497e-6
+          },
+          {
+            "t_s": -1.37497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.37497e-6,
+            "t_end_s": -1.27497e-6
+          },
+          {
+            "t_s": -1.27497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.27497e-6,
+            "t_end_s": -1.17497e-6
+          },
+          {
+            "t_s": -1.17497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.17497e-6,
+            "t_end_s": -1.07497e-6
+          },
+          {
+            "t_s": -1.07497e-6,
+            "value": 1e-7,
+            "t_start_s": -1.07497e-6,
+            "t_end_s": -9.7497e-7
+          },
+          {
+            "t_s": -9.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -9.7497e-7,
+            "t_end_s": -8.7497e-7
+          },
+          {
+            "t_s": -8.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -8.7497e-7,
+            "t_end_s": -7.7497e-7
+          },
+          {
+            "t_s": -7.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -7.7497e-7,
+            "t_end_s": -6.7497e-7
+          },
+          {
+            "t_s": -6.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -6.7497e-7,
+            "t_end_s": -5.7497e-7
+          },
+          {
+            "t_s": -5.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -5.7497e-7,
+            "t_end_s": -4.7497e-7
+          },
+          {
+            "t_s": -4.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -4.7497e-7,
+            "t_end_s": -3.7497e-7
+          },
+          {
+            "t_s": -3.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -3.7497e-7,
+            "t_end_s": -2.7497e-7
+          },
+          {
+            "t_s": -2.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -2.7497e-7,
+            "t_end_s": -1.7497e-7
+          },
+          {
+            "t_s": -1.7497e-7,
+            "value": 1e-7,
+            "t_start_s": -1.7497e-7,
+            "t_end_s": -7.497e-8
+          },
+          {
+            "t_s": -7.497e-8,
+            "value": 1e-7,
+            "t_start_s": -7.497e-8,
+            "t_end_s": 2.503e-8
+          },
+          {
+            "t_s": 2.503e-8,
+            "value": 1e-7,
+            "t_start_s": 2.503e-8,
+            "t_end_s": 1.2503e-7
+          },
+          {
+            "t_s": 1.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 1.2503e-7,
+            "t_end_s": 2.2503e-7
+          },
+          {
+            "t_s": 2.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 2.2503e-7,
+            "t_end_s": 3.2503e-7
+          },
+          {
+            "t_s": 3.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 3.2503e-7,
+            "t_end_s": 4.2503e-7
+          },
+          {
+            "t_s": 4.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 4.2503e-7,
+            "t_end_s": 5.2503e-7
+          },
+          {
+            "t_s": 5.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 5.2503e-7,
+            "t_end_s": 6.2503e-7
+          },
+          {
+            "t_s": 6.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 6.2503e-7,
+            "t_end_s": 7.2503e-7
+          },
+          {
+            "t_s": 7.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 7.2503e-7,
+            "t_end_s": 8.2503e-7
+          },
+          {
+            "t_s": 8.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 8.2503e-7,
+            "t_end_s": 9.2503e-7
+          },
+          {
+            "t_s": 9.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 9.2503e-7,
+            "t_end_s": 1.02503e-6
+          },
+          {
+            "t_s": 1.02503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.02503e-6,
+            "t_end_s": 1.12503e-6
+          },
+          {
+            "t_s": 1.12503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.12503e-6,
+            "t_end_s": 1.22503e-6
+          },
+          {
+            "t_s": 1.22503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.22503e-6,
+            "t_end_s": 1.32503e-6
+          },
+          {
+            "t_s": 1.32503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.42503e-6
+          },
+          {
+            "t_s": 1.42503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.42503e-6,
+            "t_end_s": 1.52503e-6
+          },
+          {
+            "t_s": 1.52503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.52503e-6,
+            "t_end_s": 1.62503e-6
+          },
+          {
+            "t_s": 1.62503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.62503e-6,
+            "t_end_s": 1.72503e-6
+          },
+          {
+            "t_s": 1.72503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.82503e-6
+          },
+          {
+            "t_s": 1.82503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.82503e-6,
+            "t_end_s": 1.92503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "v50": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 1e-7,
+      "deviation_pct": 0.0,
+      "warnings": []
+    },
+    {
+      "metric_id": "frequency",
+      "label": "클럭 주파수",
+      "category": "timing",
+      "unit": "Hz",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH1",
+      "value": 10000000.0,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "v50": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "duty_cycle",
+      "label": "듀티 사이클",
+      "category": "timing",
+      "unit": "%",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH1",
+      "value": 50.0,
+      "stats": {
+        "mean": 50.0,
+        "min": 50.0,
+        "max": 50.0,
+        "std": 0.0,
+        "n": 39
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.97497e-6,
+            "value": 50.0,
+            "t_start_s": -1.97497e-6,
+            "t_end_s": -1.92497e-6
+          },
+          {
+            "t_s": -1.87497e-6,
+            "value": 50.0,
+            "t_start_s": -1.87497e-6,
+            "t_end_s": -1.82497e-6
+          },
+          {
+            "t_s": -1.77497e-6,
+            "value": 50.0,
+            "t_start_s": -1.77497e-6,
+            "t_end_s": -1.72497e-6
+          },
+          {
+            "t_s": -1.67497e-6,
+            "value": 50.0,
+            "t_start_s": -1.67497e-6,
+            "t_end_s": -1.62497e-6
+          },
+          {
+            "t_s": -1.57497e-6,
+            "value": 50.0,
+            "t_start_s": -1.57497e-6,
+            "t_end_s": -1.52497e-6
+          },
+          {
+            "t_s": -1.47497e-6,
+            "value": 50.0,
+            "t_start_s": -1.47497e-6,
+            "t_end_s": -1.42497e-6
+          },
+          {
+            "t_s": -1.37497e-6,
+            "value": 50.0,
+            "t_start_s": -1.37497e-6,
+            "t_end_s": -1.32497e-6
+          },
+          {
+            "t_s": -1.27497e-6,
+            "value": 50.0,
+            "t_start_s": -1.27497e-6,
+            "t_end_s": -1.22497e-6
+          },
+          {
+            "t_s": -1.17497e-6,
+            "value": 50.0,
+            "t_start_s": -1.17497e-6,
+            "t_end_s": -1.12497e-6
+          },
+          {
+            "t_s": -1.07497e-6,
+            "value": 50.0,
+            "t_start_s": -1.07497e-6,
+            "t_end_s": -1.02497e-6
+          },
+          {
+            "t_s": -9.7497e-7,
+            "value": 50.0,
+            "t_start_s": -9.7497e-7,
+            "t_end_s": -9.2497e-7
+          },
+          {
+            "t_s": -8.7497e-7,
+            "value": 50.0,
+            "t_start_s": -8.7497e-7,
+            "t_end_s": -8.2497e-7
+          },
+          {
+            "t_s": -7.7497e-7,
+            "value": 50.0,
+            "t_start_s": -7.7497e-7,
+            "t_end_s": -7.2497e-7
+          },
+          {
+            "t_s": -6.7497e-7,
+            "value": 50.0,
+            "t_start_s": -6.7497e-7,
+            "t_end_s": -6.2497e-7
+          },
+          {
+            "t_s": -5.7497e-7,
+            "value": 50.0,
+            "t_start_s": -5.7497e-7,
+            "t_end_s": -5.2497e-7
+          },
+          {
+            "t_s": -4.7497e-7,
+            "value": 50.0,
+            "t_start_s": -4.7497e-7,
+            "t_end_s": -4.2497e-7
+          },
+          {
+            "t_s": -3.7497e-7,
+            "value": 50.0,
+            "t_start_s": -3.7497e-7,
+            "t_end_s": -3.2497e-7
+          },
+          {
+            "t_s": -2.7497e-7,
+            "value": 50.0,
+            "t_start_s": -2.7497e-7,
+            "t_end_s": -2.2497e-7
+          },
+          {
+            "t_s": -1.7497e-7,
+            "value": 50.0,
+            "t_start_s": -1.7497e-7,
+            "t_end_s": -1.2497e-7
+          },
+          {
+            "t_s": -7.497e-8,
+            "value": 50.0,
+            "t_start_s": -7.497e-8,
+            "t_end_s": -2.497e-8
+          },
+          {
+            "t_s": 2.503e-8,
+            "value": 50.0,
+            "t_start_s": 2.503e-8,
+            "t_end_s": 7.503e-8
+          },
+          {
+            "t_s": 1.2503e-7,
+            "value": 50.0,
+            "t_start_s": 1.2503e-7,
+            "t_end_s": 1.7503e-7
+          },
+          {
+            "t_s": 2.2503e-7,
+            "value": 50.0,
+            "t_start_s": 2.2503e-7,
+            "t_end_s": 2.7503e-7
+          },
+          {
+            "t_s": 3.2503e-7,
+            "value": 50.0,
+            "t_start_s": 3.2503e-7,
+            "t_end_s": 3.7503e-7
+          },
+          {
+            "t_s": 4.2503e-7,
+            "value": 50.0,
+            "t_start_s": 4.2503e-7,
+            "t_end_s": 4.7503e-7
+          },
+          {
+            "t_s": 5.2503e-7,
+            "value": 50.0,
+            "t_start_s": 5.2503e-7,
+            "t_end_s": 5.7503e-7
+          },
+          {
+            "t_s": 6.2503e-7,
+            "value": 50.0,
+            "t_start_s": 6.2503e-7,
+            "t_end_s": 6.7503e-7
+          },
+          {
+            "t_s": 7.2503e-7,
+            "value": 50.0,
+            "t_start_s": 7.2503e-7,
+            "t_end_s": 7.7503e-7
+          },
+          {
+            "t_s": 8.2503e-7,
+            "value": 50.0,
+            "t_start_s": 8.2503e-7,
+            "t_end_s": 8.7503e-7
+          },
+          {
+            "t_s": 9.2503e-7,
+            "value": 50.0,
+            "t_start_s": 9.2503e-7,
+            "t_end_s": 9.7503e-7
+          },
+          {
+            "t_s": 1.02503e-6,
+            "value": 50.0,
+            "t_start_s": 1.02503e-6,
+            "t_end_s": 1.07503e-6
+          },
+          {
+            "t_s": 1.12503e-6,
+            "value": 50.0,
+            "t_start_s": 1.12503e-6,
+            "t_end_s": 1.17503e-6
+          },
+          {
+            "t_s": 1.22503e-6,
+            "value": 50.0,
+            "t_start_s": 1.22503e-6,
+            "t_end_s": 1.27503e-6
+          },
+          {
+            "t_s": 1.32503e-6,
+            "value": 50.0,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.37503e-6
+          },
+          {
+            "t_s": 1.42503e-6,
+            "value": 50.0,
+            "t_start_s": 1.42503e-6,
+            "t_end_s": 1.47503e-6
+          },
+          {
+            "t_s": 1.52503e-6,
+            "value": 50.0,
+            "t_start_s": 1.52503e-6,
+            "t_end_s": 1.57503e-6
+          },
+          {
+            "t_s": 1.62503e-6,
+            "value": 50.0,
+            "t_start_s": 1.62503e-6,
+            "t_end_s": 1.67503e-6
+          },
+          {
+            "t_s": 1.72503e-6,
+            "value": 50.0,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.77503e-6
+          },
+          {
+            "t_s": 1.82503e-6,
+            "value": 50.0,
+            "t_start_s": 1.82503e-6,
+            "t_end_s": 1.87503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "v50": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 50.0,
+      "deviation_pct": 0.0,
+      "warnings": []
+    },
+    {
+      "metric_id": "setup_slack",
+      "label": "셋업 슬랙 (이 캡처)",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 4.3962379e-8,
+      "stats": {
+        "mean": 4.425e-8,
+        "min": 4.3962379e-8,
+        "max": 4.4535582e-8,
+        "std": 2.5175e-10,
+        "n": 16
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.419007559e-6,
+            "value": 4.4037559e-8,
+            "t_start_s": -1.419007559e-6,
+            "t_end_s": -1.37497e-6
+          },
+          {
+            "t_s": -1.31948024e-6,
+            "value": 4.451024e-8,
+            "t_start_s": -1.31948024e-6,
+            "t_end_s": -1.27497e-6
+          },
+          {
+            "t_s": -8.18933925e-7,
+            "value": 4.3963925e-8,
+            "t_start_s": -8.18933925e-7,
+            "t_end_s": -7.7497e-7
+          },
+          {
+            "t_s": -6.19500259e-7,
+            "value": 4.4530259e-8,
+            "t_start_s": -6.19500259e-7,
+            "t_end_s": -5.7497e-7
+          },
+          {
+            "t_s": -2.18992105e-7,
+            "value": 4.4022105e-8,
+            "t_start_s": -2.18992105e-7,
+            "t_end_s": -1.7497e-7
+          },
+          {
+            "t_s": -1.19428865e-7,
+            "value": 4.4458865e-8,
+            "t_start_s": -1.19428865e-7,
+            "t_end_s": -7.497e-8
+          },
+          {
+            "t_s": -1.8962184e-8,
+            "value": 4.3992184e-8,
+            "t_start_s": -1.8962184e-8,
+            "t_end_s": 2.503e-8
+          },
+          {
+            "t_s": 8.0494418e-8,
+            "value": 4.4535582e-8,
+            "t_start_s": 8.0494418e-8,
+            "t_end_s": 1.2503e-7
+          },
+          {
+            "t_s": 3.81017373e-7,
+            "value": 4.4012627e-8,
+            "t_start_s": 3.81017373e-7,
+            "t_end_s": 4.2503e-7
+          },
+          {
+            "t_s": 7.80506069e-7,
+            "value": 4.4523931e-8,
+            "t_start_s": 7.80506069e-7,
+            "t_end_s": 8.2503e-7
+          },
+          {
+            "t_s": 9.81062013e-7,
+            "value": 4.3967987e-8,
+            "t_start_s": 9.81062013e-7,
+            "t_end_s": 1.02503e-6
+          },
+          {
+            "t_s": 1.080549926e-6,
+            "value": 4.4480074e-8,
+            "t_start_s": 1.080549926e-6,
+            "t_end_s": 1.12503e-6
+          },
+          {
+            "t_s": 1.381067621e-6,
+            "value": 4.3962379e-8,
+            "t_start_s": 1.381067621e-6,
+            "t_end_s": 1.42503e-6
+          },
+          {
+            "t_s": 1.480529708e-6,
+            "value": 4.4500292e-8,
+            "t_start_s": 1.480529708e-6,
+            "t_end_s": 1.52503e-6
+          },
+          {
+            "t_s": 1.580988765e-6,
+            "value": 4.4041235e-8,
+            "t_start_s": 1.580988765e-6,
+            "t_end_s": 1.62503e-6
+          },
+          {
+            "t_s": 1.780569243e-6,
+            "value": 4.4460757e-8,
+            "t_start_s": 1.780569243e-6,
+            "t_end_s": 1.82503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "clk_v50": 0.9,
+          "data_v50": 0.9
+        },
+        "worst_time_s": 1.381067621e-6,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 4.565e-8,
+      "deviation_pct": -3.0668127053669205,
+      "warnings": []
+    },
+    {
+      "metric_id": "hold_slack",
+      "label": "홀드 슬랙 (이 캡처)",
+      "category": "timing",
+      "unit": "s",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 5.5464418e-8,
+      "stats": {
+        "mean": 5.575e-8,
+        "min": 5.5464418e-8,
+        "max": 5.6037621e-8,
+        "std": 2.5175e-10,
+        "n": 16
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": -1.419007559e-6,
+            "value": 5.5962441e-8,
+            "t_start_s": -1.47497e-6,
+            "t_end_s": -1.419007559e-6
+          },
+          {
+            "t_s": -1.31948024e-6,
+            "value": 5.548976e-8,
+            "t_start_s": -1.37497e-6,
+            "t_end_s": -1.31948024e-6
+          },
+          {
+            "t_s": -8.18933925e-7,
+            "value": 5.6036075e-8,
+            "t_start_s": -8.7497e-7,
+            "t_end_s": -8.18933925e-7
+          },
+          {
+            "t_s": -6.19500259e-7,
+            "value": 5.5469741e-8,
+            "t_start_s": -6.7497e-7,
+            "t_end_s": -6.19500259e-7
+          },
+          {
+            "t_s": -2.18992105e-7,
+            "value": 5.5977895e-8,
+            "t_start_s": -2.7497e-7,
+            "t_end_s": -2.18992105e-7
+          },
+          {
+            "t_s": -1.19428865e-7,
+            "value": 5.5541135e-8,
+            "t_start_s": -1.7497e-7,
+            "t_end_s": -1.19428865e-7
+          },
+          {
+            "t_s": -1.8962184e-8,
+            "value": 5.6007816e-8,
+            "t_start_s": -7.497e-8,
+            "t_end_s": -1.8962184e-8
+          },
+          {
+            "t_s": 8.0494418e-8,
+            "value": 5.5464418e-8,
+            "t_start_s": 2.503e-8,
+            "t_end_s": 8.0494418e-8
+          },
+          {
+            "t_s": 3.81017373e-7,
+            "value": 5.5987373e-8,
+            "t_start_s": 3.2503e-7,
+            "t_end_s": 3.81017373e-7
+          },
+          {
+            "t_s": 7.80506069e-7,
+            "value": 5.5476069e-8,
+            "t_start_s": 7.2503e-7,
+            "t_end_s": 7.80506069e-7
+          },
+          {
+            "t_s": 9.81062013e-7,
+            "value": 5.6032013e-8,
+            "t_start_s": 9.2503e-7,
+            "t_end_s": 9.81062013e-7
+          },
+          {
+            "t_s": 1.080549926e-6,
+            "value": 5.5519926e-8,
+            "t_start_s": 1.02503e-6,
+            "t_end_s": 1.080549926e-6
+          },
+          {
+            "t_s": 1.381067621e-6,
+            "value": 5.6037621e-8,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.381067621e-6
+          },
+          {
+            "t_s": 1.480529708e-6,
+            "value": 5.5499708e-8,
+            "t_start_s": 1.42503e-6,
+            "t_end_s": 1.480529708e-6
+          },
+          {
+            "t_s": 1.580988765e-6,
+            "value": 5.5958765e-8,
+            "t_start_s": 1.52503e-6,
+            "t_end_s": 1.580988765e-6
+          },
+          {
+            "t_s": 1.780569243e-6,
+            "value": 5.5539243e-8,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.780569243e-6
+          }
+        ],
+        "ref_levels_v": {
+          "clk_v50": 0.9,
+          "data_v50": 0.9
+        },
+        "worst_time_s": 8.0494418e-8,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 5.435e-8,
+      "deviation_pct": 2.575896964121434,
+      "warnings": []
+    },
+    {
+      "metric_id": "voh",
+      "label": "출력 High 전압",
+      "category": "dc",
+      "unit": "V",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 1.75,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "high": 1.75,
+          "low": 0.05
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": {
+        "metric_id": "voh",
+        "path": null,
+        "channel_id": null,
+        "min": 1.6,
+        "max": null
+      },
+      "verdict": "MARGINAL",
+      "margin_pct": 9.374999999999995,
+      "sim_value": 1.8,
+      "deviation_pct": -2.77777777777778,
+      "warnings": []
+    },
+    {
+      "metric_id": "vol",
+      "label": "출력 Low 전압",
+      "category": "dc",
+      "unit": "V",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 0.05,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "high": 1.75,
+          "low": 0.05
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": 0.0,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "idd_avg",
+      "label": "평균 공급 전류",
+      "category": "dc",
+      "unit": "A",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH4",
+      "value": 0.00012,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {},
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "avg_power",
+      "label": "평균 전력",
+      "category": "dc",
+      "unit": "W",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH4",
+      "value": 0.000216,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {},
+        "worst_time_s": null,
+        "params": {
+          "vdd_v": 1.8,
+          "idd_avg_a": 0.00012
+        }
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "iddq",
+      "label": "정적 전류 IDDQ",
+      "category": "dc",
+      "unit": "A",
+      "source": "measured",
+      "path": null,
+      "channel_id": "DMM",
+      "value": 1.5e-6,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {},
+        "worst_time_s": null,
+        "params": {
+          "vdd_v": 1.8
+        }
+      },
+      "spec": {
+        "metric_id": "iddq",
+        "path": null,
+        "channel_id": null,
+        "min": null,
+        "max": 2.5e-6
+      },
+      "verdict": "PASS",
+      "margin_pct": 40.0,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "match_rate",
+      "label": "기능 일치율",
+      "category": "functional",
+      "unit": "%",
+      "source": "measured",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 100.0,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "threshold_v": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": "PASS",
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    }
+  ],
+  "sim_results": [
+    {
+      "metric_id": "rise_time",
+      "label": "상승 시간",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 2e-9,
+      "stats": {
+        "mean": 2e-9,
+        "min": 2e-9,
+        "max": 2e-9,
+        "std": 0.0,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 5.7953e-7,
+            "value": 2e-9,
+            "t_start_s": 5.7853e-7,
+            "t_end_s": 5.8053e-7
+          },
+          {
+            "t_s": 1.17953e-6,
+            "value": 2e-9,
+            "t_start_s": 1.17853e-6,
+            "t_end_s": 1.18053e-6
+          },
+          {
+            "t_s": 1.77953e-6,
+            "value": 2e-9,
+            "t_start_s": 1.77853e-6,
+            "t_end_s": 1.78053e-6
+          },
+          {
+            "t_s": 1.97953e-6,
+            "value": 2e-9,
+            "t_start_s": 1.97853e-6,
+            "t_end_s": 1.98053e-6
+          },
+          {
+            "t_s": 2.37953e-6,
+            "value": 2e-9,
+            "t_start_s": 2.37853e-6,
+            "t_end_s": 2.38053e-6
+          },
+          {
+            "t_s": 2.97953e-6,
+            "value": 2e-9,
+            "t_start_s": 2.97853e-6,
+            "t_end_s": 2.98053e-6
+          },
+          {
+            "t_s": 3.37953e-6,
+            "value": 2e-9,
+            "t_start_s": 3.37853e-6,
+            "t_end_s": 3.38053e-6
+          },
+          {
+            "t_s": 3.57953e-6,
+            "value": 2e-9,
+            "t_start_s": 3.57853e-6,
+            "t_end_s": 3.58053e-6
+          }
+        ],
+        "ref_levels_v": {
+          "high": 1.8,
+          "low": 0.0,
+          "v10": 0.18,
+          "v90": 1.62
+        },
+        "worst_time_s": 5.7953e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "fall_time",
+      "label": "하강 시간",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 1.8e-9,
+      "stats": {
+        "mean": 1.8e-9,
+        "min": 1.8e-9,
+        "max": 1.8e-9,
+        "std": 0.0,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 6.7923e-7,
+            "value": 1.8e-9,
+            "t_start_s": 6.7833e-7,
+            "t_end_s": 6.8013e-7
+          },
+          {
+            "t_s": 1.37923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 1.37833e-6,
+            "t_end_s": 1.38013e-6
+          },
+          {
+            "t_s": 1.87923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 1.87833e-6,
+            "t_end_s": 1.88013e-6
+          },
+          {
+            "t_s": 2.07923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 2.07833e-6,
+            "t_end_s": 2.08013e-6
+          },
+          {
+            "t_s": 2.77923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 2.77833e-6,
+            "t_end_s": 2.78013e-6
+          },
+          {
+            "t_s": 3.07923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 3.07833e-6,
+            "t_end_s": 3.08013e-6
+          },
+          {
+            "t_s": 3.47923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 3.47833e-6,
+            "t_end_s": 3.48013e-6
+          },
+          {
+            "t_s": 3.77923e-6,
+            "value": 1.8e-9,
+            "t_start_s": 3.77833e-6,
+            "t_end_s": 3.78013e-6
+          }
+        ],
+        "ref_levels_v": {
+          "high": 1.8,
+          "low": 0.0,
+          "v10": 0.18,
+          "v90": 1.62
+        },
+        "worst_time_s": 6.7923e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "tplh",
+      "label": "전파 지연 tpLH",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": "Buffer",
+      "channel_id": "CH3",
+      "value": 4.5e-9,
+      "stats": {
+        "mean": 4.5e-9,
+        "min": 4.5e-9,
+        "max": 4.5e-9,
+        "std": 0.0,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 5.7953e-7,
+            "value": 4.5e-9,
+            "t_start_s": 5.7503e-7,
+            "t_end_s": 5.7953e-7
+          },
+          {
+            "t_s": 1.17953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 1.17503e-6,
+            "t_end_s": 1.17953e-6
+          },
+          {
+            "t_s": 1.77953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 1.77503e-6,
+            "t_end_s": 1.77953e-6
+          },
+          {
+            "t_s": 1.97953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 1.97503e-6,
+            "t_end_s": 1.97953e-6
+          },
+          {
+            "t_s": 2.37953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 2.37503e-6,
+            "t_end_s": 2.37953e-6
+          },
+          {
+            "t_s": 2.97953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 2.97503e-6,
+            "t_end_s": 2.97953e-6
+          },
+          {
+            "t_s": 3.37953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 3.37503e-6,
+            "t_end_s": 3.37953e-6
+          },
+          {
+            "t_s": 3.57953e-6,
+            "value": 4.5e-9,
+            "t_start_s": 3.57503e-6,
+            "t_end_s": 3.57953e-6
+          }
+        ],
+        "ref_levels_v": {
+          "in_v50": 0.9,
+          "out_v50": 0.9
+        },
+        "worst_time_s": 5.7953e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "tphl",
+      "label": "전파 지연 tpHL",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": "Buffer",
+      "channel_id": "CH3",
+      "value": 4.2e-9,
+      "stats": {
+        "mean": 4.2e-9,
+        "min": 4.2e-9,
+        "max": 4.2e-9,
+        "std": 0.0,
+        "n": 8
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 6.7923e-7,
+            "value": 4.2e-9,
+            "t_start_s": 6.7503e-7,
+            "t_end_s": 6.7923e-7
+          },
+          {
+            "t_s": 1.37923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 1.37503e-6,
+            "t_end_s": 1.37923e-6
+          },
+          {
+            "t_s": 1.87923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 1.87503e-6,
+            "t_end_s": 1.87923e-6
+          },
+          {
+            "t_s": 2.07923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 2.07503e-6,
+            "t_end_s": 2.07923e-6
+          },
+          {
+            "t_s": 2.77923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 2.77503e-6,
+            "t_end_s": 2.77923e-6
+          },
+          {
+            "t_s": 3.07923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 3.07503e-6,
+            "t_end_s": 3.07923e-6
+          },
+          {
+            "t_s": 3.47923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 3.47503e-6,
+            "t_end_s": 3.47923e-6
+          },
+          {
+            "t_s": 3.77923e-6,
+            "value": 4.2e-9,
+            "t_start_s": 3.77503e-6,
+            "t_end_s": 3.77923e-6
+          }
+        ],
+        "ref_levels_v": {
+          "in_v50": 0.9,
+          "out_v50": 0.9
+        },
+        "worst_time_s": 6.7923e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "period",
+      "label": "클럭 주기",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH1",
+      "value": 1e-7,
+      "stats": {
+        "mean": 1e-7,
+        "min": 1e-7,
+        "max": 1e-7,
+        "std": 0.0,
+        "n": 39
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 2.503e-8,
+            "value": 1e-7,
+            "t_start_s": 2.503e-8,
+            "t_end_s": 1.2503e-7
+          },
+          {
+            "t_s": 1.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 1.2503e-7,
+            "t_end_s": 2.2503e-7
+          },
+          {
+            "t_s": 2.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 2.2503e-7,
+            "t_end_s": 3.2503e-7
+          },
+          {
+            "t_s": 3.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 3.2503e-7,
+            "t_end_s": 4.2503e-7
+          },
+          {
+            "t_s": 4.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 4.2503e-7,
+            "t_end_s": 5.2503e-7
+          },
+          {
+            "t_s": 5.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 5.2503e-7,
+            "t_end_s": 6.2503e-7
+          },
+          {
+            "t_s": 6.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 6.2503e-7,
+            "t_end_s": 7.2503e-7
+          },
+          {
+            "t_s": 7.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 7.2503e-7,
+            "t_end_s": 8.2503e-7
+          },
+          {
+            "t_s": 8.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 8.2503e-7,
+            "t_end_s": 9.2503e-7
+          },
+          {
+            "t_s": 9.2503e-7,
+            "value": 1e-7,
+            "t_start_s": 9.2503e-7,
+            "t_end_s": 1.02503e-6
+          },
+          {
+            "t_s": 1.02503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.02503e-6,
+            "t_end_s": 1.12503e-6
+          },
+          {
+            "t_s": 1.12503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.12503e-6,
+            "t_end_s": 1.22503e-6
+          },
+          {
+            "t_s": 1.22503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.22503e-6,
+            "t_end_s": 1.32503e-6
+          },
+          {
+            "t_s": 1.32503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.42503e-6
+          },
+          {
+            "t_s": 1.42503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.42503e-6,
+            "t_end_s": 1.52503e-6
+          },
+          {
+            "t_s": 1.52503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.52503e-6,
+            "t_end_s": 1.62503e-6
+          },
+          {
+            "t_s": 1.62503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.62503e-6,
+            "t_end_s": 1.72503e-6
+          },
+          {
+            "t_s": 1.72503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.82503e-6
+          },
+          {
+            "t_s": 1.82503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.82503e-6,
+            "t_end_s": 1.92503e-6
+          },
+          {
+            "t_s": 1.92503e-6,
+            "value": 1e-7,
+            "t_start_s": 1.92503e-6,
+            "t_end_s": 2.02503e-6
+          },
+          {
+            "t_s": 2.02503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.02503e-6,
+            "t_end_s": 2.12503e-6
+          },
+          {
+            "t_s": 2.12503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.12503e-6,
+            "t_end_s": 2.22503e-6
+          },
+          {
+            "t_s": 2.22503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.22503e-6,
+            "t_end_s": 2.32503e-6
+          },
+          {
+            "t_s": 2.32503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.32503e-6,
+            "t_end_s": 2.42503e-6
+          },
+          {
+            "t_s": 2.42503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.42503e-6,
+            "t_end_s": 2.52503e-6
+          },
+          {
+            "t_s": 2.52503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.52503e-6,
+            "t_end_s": 2.62503e-6
+          },
+          {
+            "t_s": 2.62503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.62503e-6,
+            "t_end_s": 2.72503e-6
+          },
+          {
+            "t_s": 2.72503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.72503e-6,
+            "t_end_s": 2.82503e-6
+          },
+          {
+            "t_s": 2.82503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.82503e-6,
+            "t_end_s": 2.92503e-6
+          },
+          {
+            "t_s": 2.92503e-6,
+            "value": 1e-7,
+            "t_start_s": 2.92503e-6,
+            "t_end_s": 3.02503e-6
+          },
+          {
+            "t_s": 3.02503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.02503e-6,
+            "t_end_s": 3.12503e-6
+          },
+          {
+            "t_s": 3.12503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.12503e-6,
+            "t_end_s": 3.22503e-6
+          },
+          {
+            "t_s": 3.22503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.22503e-6,
+            "t_end_s": 3.32503e-6
+          },
+          {
+            "t_s": 3.32503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.32503e-6,
+            "t_end_s": 3.42503e-6
+          },
+          {
+            "t_s": 3.42503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.42503e-6,
+            "t_end_s": 3.52503e-6
+          },
+          {
+            "t_s": 3.52503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.52503e-6,
+            "t_end_s": 3.62503e-6
+          },
+          {
+            "t_s": 3.62503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.62503e-6,
+            "t_end_s": 3.72503e-6
+          },
+          {
+            "t_s": 3.72503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.72503e-6,
+            "t_end_s": 3.82503e-6
+          },
+          {
+            "t_s": 3.82503e-6,
+            "value": 1e-7,
+            "t_start_s": 3.82503e-6,
+            "t_end_s": 3.92503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "v50": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "duty_cycle",
+      "label": "듀티 사이클",
+      "category": "timing",
+      "unit": "%",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH1",
+      "value": 50.0,
+      "stats": {
+        "mean": 50.0,
+        "min": 50.0,
+        "max": 50.0,
+        "std": 0.0,
+        "n": 39
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 2.503e-8,
+            "value": 50.0,
+            "t_start_s": 2.503e-8,
+            "t_end_s": 7.503e-8
+          },
+          {
+            "t_s": 1.2503e-7,
+            "value": 50.0,
+            "t_start_s": 1.2503e-7,
+            "t_end_s": 1.7503e-7
+          },
+          {
+            "t_s": 2.2503e-7,
+            "value": 50.0,
+            "t_start_s": 2.2503e-7,
+            "t_end_s": 2.7503e-7
+          },
+          {
+            "t_s": 3.2503e-7,
+            "value": 50.0,
+            "t_start_s": 3.2503e-7,
+            "t_end_s": 3.7503e-7
+          },
+          {
+            "t_s": 4.2503e-7,
+            "value": 50.0,
+            "t_start_s": 4.2503e-7,
+            "t_end_s": 4.7503e-7
+          },
+          {
+            "t_s": 5.2503e-7,
+            "value": 50.0,
+            "t_start_s": 5.2503e-7,
+            "t_end_s": 5.7503e-7
+          },
+          {
+            "t_s": 6.2503e-7,
+            "value": 50.0,
+            "t_start_s": 6.2503e-7,
+            "t_end_s": 6.7503e-7
+          },
+          {
+            "t_s": 7.2503e-7,
+            "value": 50.0,
+            "t_start_s": 7.2503e-7,
+            "t_end_s": 7.7503e-7
+          },
+          {
+            "t_s": 8.2503e-7,
+            "value": 50.0,
+            "t_start_s": 8.2503e-7,
+            "t_end_s": 8.7503e-7
+          },
+          {
+            "t_s": 9.2503e-7,
+            "value": 50.0,
+            "t_start_s": 9.2503e-7,
+            "t_end_s": 9.7503e-7
+          },
+          {
+            "t_s": 1.02503e-6,
+            "value": 50.0,
+            "t_start_s": 1.02503e-6,
+            "t_end_s": 1.07503e-6
+          },
+          {
+            "t_s": 1.12503e-6,
+            "value": 50.0,
+            "t_start_s": 1.12503e-6,
+            "t_end_s": 1.17503e-6
+          },
+          {
+            "t_s": 1.22503e-6,
+            "value": 50.0,
+            "t_start_s": 1.22503e-6,
+            "t_end_s": 1.27503e-6
+          },
+          {
+            "t_s": 1.32503e-6,
+            "value": 50.0,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.37503e-6
+          },
+          {
+            "t_s": 1.42503e-6,
+            "value": 50.0,
+            "t_start_s": 1.42503e-6,
+            "t_end_s": 1.47503e-6
+          },
+          {
+            "t_s": 1.52503e-6,
+            "value": 50.0,
+            "t_start_s": 1.52503e-6,
+            "t_end_s": 1.57503e-6
+          },
+          {
+            "t_s": 1.62503e-6,
+            "value": 50.0,
+            "t_start_s": 1.62503e-6,
+            "t_end_s": 1.67503e-6
+          },
+          {
+            "t_s": 1.72503e-6,
+            "value": 50.0,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.77503e-6
+          },
+          {
+            "t_s": 1.82503e-6,
+            "value": 50.0,
+            "t_start_s": 1.82503e-6,
+            "t_end_s": 1.87503e-6
+          },
+          {
+            "t_s": 1.92503e-6,
+            "value": 50.0,
+            "t_start_s": 1.92503e-6,
+            "t_end_s": 1.97503e-6
+          },
+          {
+            "t_s": 2.02503e-6,
+            "value": 50.0,
+            "t_start_s": 2.02503e-6,
+            "t_end_s": 2.07503e-6
+          },
+          {
+            "t_s": 2.12503e-6,
+            "value": 50.0,
+            "t_start_s": 2.12503e-6,
+            "t_end_s": 2.17503e-6
+          },
+          {
+            "t_s": 2.22503e-6,
+            "value": 50.0,
+            "t_start_s": 2.22503e-6,
+            "t_end_s": 2.27503e-6
+          },
+          {
+            "t_s": 2.32503e-6,
+            "value": 50.0,
+            "t_start_s": 2.32503e-6,
+            "t_end_s": 2.37503e-6
+          },
+          {
+            "t_s": 2.42503e-6,
+            "value": 50.0,
+            "t_start_s": 2.42503e-6,
+            "t_end_s": 2.47503e-6
+          },
+          {
+            "t_s": 2.52503e-6,
+            "value": 50.0,
+            "t_start_s": 2.52503e-6,
+            "t_end_s": 2.57503e-6
+          },
+          {
+            "t_s": 2.62503e-6,
+            "value": 50.0,
+            "t_start_s": 2.62503e-6,
+            "t_end_s": 2.67503e-6
+          },
+          {
+            "t_s": 2.72503e-6,
+            "value": 50.0,
+            "t_start_s": 2.72503e-6,
+            "t_end_s": 2.77503e-6
+          },
+          {
+            "t_s": 2.82503e-6,
+            "value": 50.0,
+            "t_start_s": 2.82503e-6,
+            "t_end_s": 2.87503e-6
+          },
+          {
+            "t_s": 2.92503e-6,
+            "value": 50.0,
+            "t_start_s": 2.92503e-6,
+            "t_end_s": 2.97503e-6
+          },
+          {
+            "t_s": 3.02503e-6,
+            "value": 50.0,
+            "t_start_s": 3.02503e-6,
+            "t_end_s": 3.07503e-6
+          },
+          {
+            "t_s": 3.12503e-6,
+            "value": 50.0,
+            "t_start_s": 3.12503e-6,
+            "t_end_s": 3.17503e-6
+          },
+          {
+            "t_s": 3.22503e-6,
+            "value": 50.0,
+            "t_start_s": 3.22503e-6,
+            "t_end_s": 3.27503e-6
+          },
+          {
+            "t_s": 3.32503e-6,
+            "value": 50.0,
+            "t_start_s": 3.32503e-6,
+            "t_end_s": 3.37503e-6
+          },
+          {
+            "t_s": 3.42503e-6,
+            "value": 50.0,
+            "t_start_s": 3.42503e-6,
+            "t_end_s": 3.47503e-6
+          },
+          {
+            "t_s": 3.52503e-6,
+            "value": 50.0,
+            "t_start_s": 3.52503e-6,
+            "t_end_s": 3.57503e-6
+          },
+          {
+            "t_s": 3.62503e-6,
+            "value": 50.0,
+            "t_start_s": 3.62503e-6,
+            "t_end_s": 3.67503e-6
+          },
+          {
+            "t_s": 3.72503e-6,
+            "value": 50.0,
+            "t_start_s": 3.72503e-6,
+            "t_end_s": 3.77503e-6
+          },
+          {
+            "t_s": 3.82503e-6,
+            "value": 50.0,
+            "t_start_s": 3.82503e-6,
+            "t_end_s": 3.87503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "v50": 0.9
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "setup_slack",
+      "label": "셋업 슬랙 (이 캡처)",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 4.55e-8,
+      "stats": {
+        "mean": 4.565e-8,
+        "min": 4.55e-8,
+        "max": 4.58e-8,
+        "std": 1.5e-10,
+        "n": 16
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 5.7953e-7,
+            "value": 4.55e-8,
+            "t_start_s": 5.7953e-7,
+            "t_end_s": 6.2503e-7
+          },
+          {
+            "t_s": 6.7923e-7,
+            "value": 4.58e-8,
+            "t_start_s": 6.7923e-7,
+            "t_end_s": 7.2503e-7
+          },
+          {
+            "t_s": 1.17953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 1.17953e-6,
+            "t_end_s": 1.22503e-6
+          },
+          {
+            "t_s": 1.37923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 1.37923e-6,
+            "t_end_s": 1.42503e-6
+          },
+          {
+            "t_s": 1.77953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 1.77953e-6,
+            "t_end_s": 1.82503e-6
+          },
+          {
+            "t_s": 1.87923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 1.87923e-6,
+            "t_end_s": 1.92503e-6
+          },
+          {
+            "t_s": 1.97953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 1.97953e-6,
+            "t_end_s": 2.02503e-6
+          },
+          {
+            "t_s": 2.07923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 2.07923e-6,
+            "t_end_s": 2.12503e-6
+          },
+          {
+            "t_s": 2.37953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 2.37953e-6,
+            "t_end_s": 2.42503e-6
+          },
+          {
+            "t_s": 2.77923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 2.77923e-6,
+            "t_end_s": 2.82503e-6
+          },
+          {
+            "t_s": 2.97953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 2.97953e-6,
+            "t_end_s": 3.02503e-6
+          },
+          {
+            "t_s": 3.07923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 3.07923e-6,
+            "t_end_s": 3.12503e-6
+          },
+          {
+            "t_s": 3.37953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 3.37953e-6,
+            "t_end_s": 3.42503e-6
+          },
+          {
+            "t_s": 3.47923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 3.47923e-6,
+            "t_end_s": 3.52503e-6
+          },
+          {
+            "t_s": 3.57953e-6,
+            "value": 4.55e-8,
+            "t_start_s": 3.57953e-6,
+            "t_end_s": 3.62503e-6
+          },
+          {
+            "t_s": 3.77923e-6,
+            "value": 4.58e-8,
+            "t_start_s": 3.77923e-6,
+            "t_end_s": 3.82503e-6
+          }
+        ],
+        "ref_levels_v": {
+          "clk_v50": 0.9,
+          "data_v50": 0.9
+        },
+        "worst_time_s": 5.7953e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "hold_slack",
+      "label": "홀드 슬랙 (이 캡처)",
+      "category": "timing",
+      "unit": "s",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 5.42e-8,
+      "stats": {
+        "mean": 5.435e-8,
+        "min": 5.42e-8,
+        "max": 5.45e-8,
+        "std": 1.5e-10,
+        "n": 16
+      },
+      "evidence": {
+        "edges": [
+          {
+            "t_s": 5.7953e-7,
+            "value": 5.45e-8,
+            "t_start_s": 5.2503e-7,
+            "t_end_s": 5.7953e-7
+          },
+          {
+            "t_s": 6.7923e-7,
+            "value": 5.42e-8,
+            "t_start_s": 6.2503e-7,
+            "t_end_s": 6.7923e-7
+          },
+          {
+            "t_s": 1.17953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 1.12503e-6,
+            "t_end_s": 1.17953e-6
+          },
+          {
+            "t_s": 1.37923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 1.32503e-6,
+            "t_end_s": 1.37923e-6
+          },
+          {
+            "t_s": 1.77953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 1.72503e-6,
+            "t_end_s": 1.77953e-6
+          },
+          {
+            "t_s": 1.87923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 1.82503e-6,
+            "t_end_s": 1.87923e-6
+          },
+          {
+            "t_s": 1.97953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 1.92503e-6,
+            "t_end_s": 1.97953e-6
+          },
+          {
+            "t_s": 2.07923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 2.02503e-6,
+            "t_end_s": 2.07923e-6
+          },
+          {
+            "t_s": 2.37953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 2.32503e-6,
+            "t_end_s": 2.37953e-6
+          },
+          {
+            "t_s": 2.77923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 2.72503e-6,
+            "t_end_s": 2.77923e-6
+          },
+          {
+            "t_s": 2.97953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 2.92503e-6,
+            "t_end_s": 2.97953e-6
+          },
+          {
+            "t_s": 3.07923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 3.02503e-6,
+            "t_end_s": 3.07923e-6
+          },
+          {
+            "t_s": 3.37953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 3.32503e-6,
+            "t_end_s": 3.37953e-6
+          },
+          {
+            "t_s": 3.47923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 3.42503e-6,
+            "t_end_s": 3.47923e-6
+          },
+          {
+            "t_s": 3.57953e-6,
+            "value": 5.45e-8,
+            "t_start_s": 3.52503e-6,
+            "t_end_s": 3.57953e-6
+          },
+          {
+            "t_s": 3.77923e-6,
+            "value": 5.42e-8,
+            "t_start_s": 3.72503e-6,
+            "t_end_s": 3.77923e-6
+          }
+        ],
+        "ref_levels_v": {
+          "clk_v50": 0.9,
+          "data_v50": 0.9
+        },
+        "worst_time_s": 6.7923e-7,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "voh",
+      "label": "출력 High 전압",
+      "category": "dc",
+      "unit": "V",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 1.8,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "high": 1.8,
+          "low": 0.0
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    },
+    {
+      "metric_id": "vol",
+      "label": "출력 Low 전압",
+      "category": "dc",
+      "unit": "V",
+      "source": "sim",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 0.0,
+      "stats": null,
+      "evidence": {
+        "edges": [],
+        "ref_levels_v": {
+          "high": 1.8,
+          "low": 0.0
+        },
+        "worst_time_s": null,
+        "params": {}
+      },
+      "spec": null,
+      "verdict": null,
+      "margin_pct": null,
+      "sim_value": null,
+      "deviation_pct": null,
+      "warnings": []
+    }
+  ],
+  "functional": {
+    "channel_id": "CH3",
+    "clk_channel_id": "CH1",
+    "threshold_v": 0.9,
+    "sample_times_s": [
+      -1.97497e-6,
+      -1.87497e-6,
+      -1.77497e-6,
+      -1.67497e-6,
+      -1.57497e-6,
+      -1.47497e-6,
+      -1.37497e-6,
+      -1.27497e-6,
+      -1.17497e-6,
+      -1.07497e-6,
+      -9.7497e-7,
+      -8.7497e-7,
+      -7.7497e-7,
+      -6.7497e-7,
+      -5.7497e-7,
+      -4.7497e-7,
+      -3.7497e-7,
+      -2.7497e-7,
+      -1.7497e-7,
+      -7.497e-8,
+      2.503e-8,
+      1.2503e-7,
+      2.2503e-7,
+      3.2503e-7,
+      4.2503e-7,
+      5.2503e-7,
+      6.2503e-7,
+      7.2503e-7,
+      8.2503e-7,
+      9.2503e-7,
+      1.02503e-6,
+      1.12503e-6,
+      1.22503e-6,
+      1.32503e-6,
+      1.42503e-6,
+      1.52503e-6,
+      1.62503e-6,
+      1.72503e-6,
+      1.82503e-6,
+      1.92503e-6
+    ],
+    "sample_values_v": [
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      1.75,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      1.75,
+      1.75,
+      0.05,
+      0.05,
+      0.05,
+      0.05,
+      1.75,
+      0.05,
+      1.75,
+      0.05,
+      0.05,
+      0.05,
+      1.75,
+      1.75,
+      1.75,
+      1.75,
+      0.05,
+      0.05,
+      1.75,
+      0.05,
+      0.05,
+      0.05,
+      1.75,
+      0.05,
+      1.75,
+      1.75,
+      0.05,
+      0.05
+    ],
+    "measured_bits": "0000001000001100001010001111001000101100",
+    "expected_bits": "0000001000001100001010001111001000101100",
+    "compared_cycles": 40,
+    "matched_cycles": 40,
+    "mismatch_cycles": [],
+    "first_mismatch": null,
+    "match_rate_pct": 100.0
+  },
+  "cards": {
+    "verdicts": {
+      "pass_count": 4,
+      "marginal_count": 1,
+      "fail_count": 0,
+      "no_spec_count": 11
+    },
+    "worst_margin": {
+      "metric_id": "voh",
+      "path": null,
+      "channel_id": "CH3",
+      "value": 1.75,
+      "margin_pct": 9.374999999999995,
+      "verdict": "MARGINAL",
+      "spec": {
+        "metric_id": "voh",
+        "path": null,
+        "channel_id": null,
+        "min": 1.6,
+        "max": null
+      }
+    },
+    "sim_deviation": {
+      "top": [
+        {
+          "metric_id": "rise_time",
+          "path": null,
+          "channel_id": "CH3",
+          "measured_value": 3e-9,
+          "sim_value": 2e-9,
+          "deviation_pct": 49.999999999999986
+        },
+        {
+          "metric_id": "tplh",
+          "path": "Buffer",
+          "channel_id": "CH3",
+          "measured_value": 6e-9,
+          "sim_value": 4.5e-9,
+          "deviation_pct": 33.333333333333336
+        }
+      ],
+      "warning_count": 4,
+      "tolerance_pct": 20.0
+    },
+    "functional": {
+      "channel_id": "CH3",
+      "match_rate_pct": 100.0,
+      "matched_cycles": 40,
+      "compared_cycles": 40,
+      "first_mismatch": null,
+      "verdict": "PASS"
+    }
+  },
+  "summary_lines": [
+    "전체 판정: PASS 4 · MARGINAL 1 · FAIL 0 — 최악 마진 VOH 9.4% (CH3)",
+    "CH3 VOH 1.75 V — 스펙 ≥ 1.60 V 대비 마진 9.4% (MARGINAL)",
+    "전 경로 공통 지연 증가 → 측정 경로(패드·PCB·프로브) 지연, VDD 강하, 공정 코너 가능성"
+  ],
+  "warnings": [
+    {
+      "code": "SIM_DEVIATION",
+      "message": "CH3 rise 시뮬 대비 +50.0% (허용 ±20.0% 초과)",
+      "source": "measured",
+      "metric_id": "rise_time",
+      "path": null,
+      "channel_id": "CH3"
+    },
+    {
+      "code": "SIM_DEVIATION",
+      "message": "CH3 fall 시뮬 대비 +38.9% (허용 ±20.0% 초과)",
+      "source": "measured",
+      "metric_id": "fall_time",
+      "path": null,
+      "channel_id": "CH3"
+    },
+    {
+      "code": "SIM_DEVIATION",
+      "message": "Buffer tpLH 시뮬 대비 +33.3% (허용 ±20.0% 초과)",
+      "source": "measured",
+      "metric_id": "tplh",
+      "path": "Buffer",
+      "channel_id": "CH3"
+    },
+    {
+      "code": "SIM_DEVIATION",
+      "message": "Buffer tpHL 시뮬 대비 +31.0% (허용 ±20.0% 초과)",
+      "source": "measured",
+      "metric_id": "tphl",
+      "path": "Buffer",
+      "channel_id": "CH3"
+    }
+  ],
+  "clk_t0_s": -1.97497e-6,
+  "sim_clk_t0_s": 2.503e-8
+}

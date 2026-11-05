@@ -1,0 +1,5 @@
+# Shared by local runs and Streamlit Community Cloud.
+# Local runs restrict access with `--server.address localhost` (see README / .claude/launch.json);
+# setting it here would block the cloud host.
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,10 @@
+[project]
+name = "chiplens"
+version = "0.1.0"
+description = "Chip measurement analysis: timing, DC/power and functional checks against spec and simulation"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
